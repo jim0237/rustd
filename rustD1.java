@@ -3,7 +3,6 @@
 //package com.fazecast.jSerialComm ;
 import com.fazecast.jSerialComm.* ;
 
-
 public class rustD1 {
 	public static void main(String[] args ) {
 		System.out.println( "This is the rustD code version 1" );
@@ -25,7 +24,14 @@ public class rustD1 {
 				  int numRead = comPort.readBytes(newData, newData.length);
 				  System.out.println("Read " + numRead + " bytes.");
 				  for (int i = 0; i < newData.length; ++i) {
-						System.out.print((char)newData[i]);
+				  		System.out.println(newData[i]);
+						if(newData[i] == 13) {
+							System.out.println("Found a carriage return");
+						}
+						if(newData[i] == 10) {
+							System.out.println("Found a line feed");
+						}
+						System.out.println((char)newData[i]);
 					}	
 					System.out.println("\n");
 			   }
